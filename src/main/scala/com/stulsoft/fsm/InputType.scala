@@ -10,6 +10,6 @@ package com.stulsoft.fsm
  * @author Yuriy Stul
  *
  */
-trait InputType {
+class InputType(val name: String) {
   
 }
