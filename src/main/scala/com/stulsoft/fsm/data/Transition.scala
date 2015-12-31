@@ -2,10 +2,10 @@
  * Copyright (c) 2015, Yuriy Stul. All rights reserved
  */
 
-package com.stulsoft.fsm
+package com.stulsoft.fsm.data
 
 /**
- * Holds a Transition details.
+ * Holds a transition details.
  *
  * @author Yuriy Stul
  *

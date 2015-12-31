@@ -5,11 +5,11 @@
 package com.stulsoft.fsm
 
 /**
- * Specifies an input type.
+ * FSM data structures.
  * 
  * @author Yuriy Stul
  *
  */
-class InputType(val name: String) {
+package object data {
   
 }
