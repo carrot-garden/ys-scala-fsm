@@ -2,7 +2,7 @@
  * Copyright (c) 2015, Yuriy Stul. All rights reserved
  */
 
-package com.stulsoft.test.fsm
+package com.stulsoft.test.fsm.data
 
 import org.scalatest.Matchers
 import org.scalatest.FlatSpec
