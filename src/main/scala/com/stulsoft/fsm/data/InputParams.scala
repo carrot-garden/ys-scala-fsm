@@ -11,11 +11,11 @@ package com.stulsoft.fsm.data
  *
  * @param params specifies collection with values of the input parameters
  */
-class InputParams(val params: Map[String, Any]) {
+class InputParams[D <% Ordered[D]](val params: Map[String, D]) {
 	require(params != null, "params could not be null")
 
 	override def equals(other: Any): Boolean = other match {
-		case that: InputParams => this.params == that.params
+		case that: InputParams[D] => this.params == that.params
 		case _ => false
 	}
 	

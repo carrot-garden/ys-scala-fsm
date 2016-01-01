@@ -13,12 +13,12 @@ package com.stulsoft.fsm.data
  * @param inputParams specifies an input parameters.
  *
  */
-class Input(val inputType: InputType, val inputParams: InputParams) {
+class Input[D <% Ordered[D]](val inputType: InputType, val inputParams: InputParams[D]) {
 	require(inputType != null, "inputType could not be null.")
 	require(inputParams != null, "inputParams could not be null.")
 	
 	override def equals(other: Any) = other match {
-		case that: Input => this.inputType == that.inputType && this.inputParams == that.inputParams
+		case that: Input[D] => this.inputType == that.inputType && this.inputParams == that.inputParams
 		case _ => false
 	}
 	
