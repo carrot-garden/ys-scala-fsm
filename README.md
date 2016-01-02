@@ -1,5 +1,5 @@
 # ys-scala-fsm
-Scala FSM
+Scala Finite State Machine (FSM) 
 
 ## State Model
 Collection of _Transition_ defines state model.
