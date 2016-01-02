@@ -93,14 +93,7 @@ object Automaton {
 
 		if (inputParameterValue.isDefined) {
 			val theValue = inputParameterValue.get
-			transactionCondition.compareType match {
-				case CompareType.Equal => theValue == transactionCondition.expectedValue
-				case CompareType.NotEqual => theValue != transactionCondition.expectedValue
-//				case CompareType.Greater => theValue > transactionCondition.expectedValue
-//				case CompareType.GreaterEqual => theValue >= transactionCondition.expectedValue
-//				case CompareType.Less => theValue < transactionCondition.expectedValue
-//				case CompareType.LessEqual => theValue <= transactionCondition.expectedValue
-			}
+			Param.compare(theValue, transactionCondition.compareType, transactionCondition.expectedValue)
 		} else false
 	}
 }
