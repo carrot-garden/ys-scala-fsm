@@ -2,15 +2,15 @@
  * Copyright (c) 2015, Yuriy Stul. All rights reserved
  */
  
-package com.stulsoft.test.fsm.data
+package com.stulsoft.test.fsm
 
 import org.scalatest.Matchers
 import org.scalatest.FlatSpec
-import com.stulsoft.fsm.data.InputType
-import com.stulsoft.fsm.data.InputParams
-import com.stulsoft.fsm.data.Input
-import com.stulsoft.fsm.data.ParamInt
-import com.stulsoft.fsm.data.ParamDouble
+import com.stulsoft.fsm.InputType
+import com.stulsoft.fsm.InputParams
+import com.stulsoft.fsm.Input
+import com.stulsoft.fsm.ParamInt
+import com.stulsoft.fsm.ParamDouble
 
 /**
  * Unit tests for InputTest class

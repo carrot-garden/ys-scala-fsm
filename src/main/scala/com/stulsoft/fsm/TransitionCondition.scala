@@ -2,7 +2,7 @@
  * Copyright (c) 2015, Yuriy Stul. All rights reserved
  */
 
-package com.stulsoft.fsm.data
+package com.stulsoft.fsm
 
 /**
  * Holds a transition condition.
@@ -30,7 +30,7 @@ class TransitionCondition(val paramName: String, val compareType: CompareType.Va
 		if (expectedValue != null) h += 19 + (19 * expectedValue.hashCode)
 		h
 	}
-	
+
 	override def toString = {
 		s"TransitionCondition: paramName=$paramName, compareType=$compareType, expectedValue=$expectedValue"
 	}

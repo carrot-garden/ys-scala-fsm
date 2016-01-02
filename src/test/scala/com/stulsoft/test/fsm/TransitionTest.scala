@@ -2,20 +2,20 @@
  * Copyright (c) 2016, Yuriy Stul. All rights reserved
  */
 
-package com.stulsoft.test.fsm.data
+package com.stulsoft.test.fsm
 
 import org.scalatest.Matchers
 import org.scalatest.FlatSpec
-import com.stulsoft.fsm.data.Transition
-import com.stulsoft.fsm.data.TransitionCondition
-import com.stulsoft.fsm.data.Input
-import com.stulsoft.fsm.data.InputType
-import com.stulsoft.fsm.data.InputParams
-import com.stulsoft.fsm.data.State
-import com.stulsoft.fsm.data.CompareType._
-import com.stulsoft.fsm.data.ConditionAggregationType
-import com.stulsoft.fsm.data.ParamInt
-import com.stulsoft.fsm.data.ParamDouble
+import com.stulsoft.fsm.Transition
+import com.stulsoft.fsm.TransitionCondition
+import com.stulsoft.fsm.Input
+import com.stulsoft.fsm.InputType
+import com.stulsoft.fsm.InputParams
+import com.stulsoft.fsm.State
+import com.stulsoft.fsm.CompareType._
+import com.stulsoft.fsm.ConditionAggregationType
+import com.stulsoft.fsm.ParamInt
+import com.stulsoft.fsm.ParamDouble
 
 /**
  * Unit tests for Transition class

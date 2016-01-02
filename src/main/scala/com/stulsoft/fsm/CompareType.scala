@@ -2,7 +2,7 @@
  * Copyright (c) 2016, Yuriy Stul. All rights reserved
  */
 
-package com.stulsoft.fsm.data
+package com.stulsoft.fsm
 
 /**
  * Specifies possible compare operations.

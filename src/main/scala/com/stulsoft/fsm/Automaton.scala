@@ -4,8 +4,6 @@
 
 package com.stulsoft.fsm
 
-import com.stulsoft.fsm.data._
-
 /**
  * Finite State Machine engine - automaton.
  *

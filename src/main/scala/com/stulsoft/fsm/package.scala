@@ -5,7 +5,7 @@
 package com.stulsoft
 
 /**
- * Base interface.
+ * FSM - Finite State Machine.
  * 
  * @author Yuriy Stul
  *

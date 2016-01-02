@@ -2,12 +2,12 @@
  * Copyright (c) 2016, Yuriy Stul. All rights reserved
  */
 
-package com.stulsoft.fsm.data
+package com.stulsoft.fsm
 
-import com.stulsoft.fsm.data.CompareType._
-import scala.annotation.meta.param
 import java.util.Date
 import java.util.Calendar
+
+import com.stulsoft.fsm.CompareType._
 
 /**
  * Abstract parameter class.

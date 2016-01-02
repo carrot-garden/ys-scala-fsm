@@ -2,11 +2,11 @@
  * Copyright (c) 2016, Yuriy Stul. All rights reserved
  */
  
-package com.stulsoft.test.fsm.data
+package com.stulsoft.test.fsm
 
 import org.scalatest.Matchers
 import org.scalatest.FlatSpec
-import com.stulsoft.fsm.data.State
+import com.stulsoft.fsm.State
 
 /**
  * Unit tests for State class

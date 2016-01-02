@@ -2,18 +2,18 @@
  * Copyright (c) 2016, Yuriy Stul. All rights reserved
  */
  
-package com.stulsoft.test.fsm.data
+package com.stulsoft.test.fsm
 
 import org.scalatest.FlatSpec
 import org.scalatest.Matchers
-import com.stulsoft.fsm.data.CompareType
-import com.stulsoft.fsm.data.CompareType._
-import com.stulsoft.fsm.data.Param
-import com.stulsoft.fsm.data.ParamText
-import com.stulsoft.fsm.data.ParamDouble
-import com.stulsoft.fsm.data.ParamInt
+import com.stulsoft.fsm.CompareType
+import com.stulsoft.fsm.CompareType._
+import com.stulsoft.fsm.Param
+import com.stulsoft.fsm.ParamText
+import com.stulsoft.fsm.ParamDouble
+import com.stulsoft.fsm.ParamInt
 import java.util.Calendar
-import com.stulsoft.fsm.data.ParamDate
+import com.stulsoft.fsm.ParamDate
 
 /**
  * Unit tests for Param class methods.
