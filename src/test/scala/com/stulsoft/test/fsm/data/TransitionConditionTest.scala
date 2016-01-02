@@ -17,8 +17,8 @@ import com.stulsoft.fsm.data.CompareType._
  */
 class TransitionConditionTest extends FlatSpec with Matchers {
   "A TransitionCondition" should "support equals" in{
-  	val t1 = new TransitionCondition[Double]("t1", Equal, Double.box(123.05))
-		val t2 = new TransitionCondition[Double]("t1", Equal, 123.05)
+  	val t1 = new TransitionCondition("t1", Equal, Double.box(123.05))
+		val t2 = new TransitionCondition("t1", Equal, 123.05)
   	t1 should equal(t2)
   	
   	val t3 = new TransitionCondition("t3", Equal, 123.05)

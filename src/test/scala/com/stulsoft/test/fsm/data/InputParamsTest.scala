@@ -7,6 +7,7 @@ package com.stulsoft.test.fsm.data
 import org.scalatest.Matchers
 import org.scalatest.FlatSpec
 import com.stulsoft.fsm.data.InputParams
+import com.stulsoft.fsm.data.InputParams
 
 /**
  * Unit tests for InputParams class
@@ -37,4 +38,10 @@ class InputParamsTest extends FlatSpec with Matchers {
 		val ip3 = new InputParams(ps3)
 		ip1.hashCode should not equal(ip3.hashCode)
 	}
+//	it should "support multiple typed values" in {
+//		val ps1 = Map("pStr1" -> "str1", "pStr2" -> "str12")
+//		val ip1 = new InputParams(ps1)
+//		val is = ip1.params.get("pStr1").get > "123"
+//		println(is)
+//	}
 }

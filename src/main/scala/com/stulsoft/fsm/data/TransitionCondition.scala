@@ -13,13 +13,13 @@ package com.stulsoft.fsm.data
  * @param compareType specifies a compare type
  * @param expectedValue specifies an expectedValue
  */
-class TransitionCondition[D <% Ordered[D]](val paramName: String, val compareType: CompareType.Value, val expectedValue: D) {
+class TransitionCondition(val paramName: String, val compareType: CompareType.Value, val expectedValue: Any) {
 	require(paramName != null && !paramName.isEmpty, "paramName could not be null or empty")
 	require(compareType != null, "compareType could not be null or empty")
 	require(expectedValue != null, "expectedValue could not be null")
 
 	override def equals(other: Any) = other match {
-		case that: TransitionCondition[D] => this.paramName == that.paramName && this.compareType == that.compareType && this.expectedValue == that.expectedValue
+		case that: TransitionCondition => this.paramName == that.paramName && this.compareType == that.compareType && this.expectedValue == that.expectedValue
 		case _ => false
 	}
 

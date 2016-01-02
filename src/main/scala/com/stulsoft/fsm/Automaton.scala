@@ -21,7 +21,7 @@ object Automaton {
 	 * @param transitions collection of the possible transitions.
 	 * @return next state, if it exists; otherwise - null.
 	 */
-	def nextState[D <% Ordered[D]](state: State, input: Input[D], transitions: List[Transition[D]]): State = {
+	def nextState(state: State, input: Input, transitions: List[Transition]): State = {
 		require(state != null, "state could not be null.")
 		require(input != null, "input could not be null.")
 		require(transitions != null, "transitions could not be null.")
@@ -44,7 +44,7 @@ object Automaton {
 	 * @param transition the transition to check
 	 * @return true, if transition is matched; otherwise - false.
 	 */
-	private def checkTransition[D <% Ordered[D]](state: State, input: Input[D], transition: Transition[D]): Boolean = {
+	private def checkTransition(state: State, input: Input, transition: Transition): Boolean = {
 		if (state.equals(transition.sourceState) && input.inputType.equals(transition.input.inputType)) {
 			transition.aggregationType match {
 				case ConditionAggregationType.One => {
@@ -90,7 +90,7 @@ object Automaton {
 	 * @param transactionCondition the condition to check
 	 * @return true, if the condition is matched; otherwise - false.
 	 */
-	private def checkCondition[D <% Ordered[D]](state: State, input: Input[D], transactionCondition: TransitionCondition[D]): Boolean = {
+	private def checkCondition(state: State, input: Input, transactionCondition: TransitionCondition): Boolean = {
 		val inputParameterValue = input.inputParams.params.get(transactionCondition.paramName)
 
 		if (inputParameterValue.isDefined) {
@@ -98,10 +98,10 @@ object Automaton {
 			transactionCondition.compareType match {
 				case CompareType.Equal => theValue == transactionCondition.expectedValue
 				case CompareType.NotEqual => theValue != transactionCondition.expectedValue
-				case CompareType.Greater => theValue > transactionCondition.expectedValue
-				case CompareType.GreaterEqual => theValue >= transactionCondition.expectedValue
-				case CompareType.Less => theValue < transactionCondition.expectedValue
-				case CompareType.LessEqual => theValue <= transactionCondition.expectedValue
+//				case CompareType.Greater => theValue > transactionCondition.expectedValue
+//				case CompareType.GreaterEqual => theValue >= transactionCondition.expectedValue
+//				case CompareType.Less => theValue < transactionCondition.expectedValue
+//				case CompareType.LessEqual => theValue <= transactionCondition.expectedValue
 			}
 		} else false
 	}
