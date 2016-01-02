@@ -57,6 +57,9 @@ class AutomatonTest extends FlatSpec with Matchers {
 
 		val nextStateNull = Automaton.nextState(new State("notExisting"), new Input(new InputType("test"), new InputParams(Map("P1" -> ParamDouble(1.0)))), transitions)
 		nextStateNull should be(null)
+
+		val nextStateNull2 = Automaton.nextState(new State("start"), new Input(new InputType("NONtest"), new InputParams(Map("P1" -> ParamDouble(1.0)))), transitions)
+		nextStateNull2 should be(null)
 	}
 	it should "support priorities" in {
 		val transitions = buildTransitionsTwo().sortBy { x => x.priority }
