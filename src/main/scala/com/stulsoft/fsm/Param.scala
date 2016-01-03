@@ -30,10 +30,17 @@ trait Param {
  * @author Yuriy Stul
  */
 case class ParamText(val textValue: String) extends Param {
+	/**
+	 * Implements operator > for ParamText See [[Param.>]]
+	 */
 	override def >(x: Param) = x match {
 		case ParamText(v) => textValue > v
 		case _ => throw new RuntimeException(s"Could not compare with ${x.getClass}")
 	}
+
+	/**
+	 * Implements operator < for ParamText See [[Param.<]]
+	 */
 	override def <(x: Param) = x match {
 		case ParamText(v) => textValue < v
 		case _ => throw new RuntimeException(s"Could not compare with ${x.getClass}")
@@ -46,10 +53,18 @@ case class ParamText(val textValue: String) extends Param {
  * @author Yuriy Stul
  */
 case class ParamDouble(val doubleValue: Double) extends Param {
+
+	/**
+	 * Implements operator > for ParamDouble See [[Param.>]]
+	 */
 	override def >(x: Param) = x match {
 		case ParamDouble(v) => doubleValue > v
 		case _ => throw new RuntimeException(s"Could not compare with ${x.getClass}")
 	}
+
+	/**
+	 * Implements operator < for ParamDouble See [[Param.<]]
+	 */
 	override def <(x: Param) = x match {
 		case ParamDouble(v) => doubleValue < v
 		case _ => throw new RuntimeException(s"Could not compare with ${x.getClass}")
@@ -62,10 +77,18 @@ case class ParamDouble(val doubleValue: Double) extends Param {
  * @author Yuriy Stul
  */
 case class ParamInt(val intValue: Int) extends Param {
+
+	/**
+	 * Implements operator > for ParamInt See [[Param.>]]
+	 */
 	override def >(x: Param) = x match {
 		case ParamInt(v) => intValue > v
 		case _ => throw new RuntimeException(s"Could not compare with ${x.getClass}")
 	}
+
+	/**
+	 * Implements operator < for ParamInt See [[Param.<]]
+	 */
 	override def <(x: Param) = x match {
 		case ParamInt(v) => intValue < v
 		case _ => throw new RuntimeException(s"Could not compare with ${x.getClass}")
@@ -78,10 +101,18 @@ case class ParamInt(val intValue: Int) extends Param {
  * @author Yuriy Stul
  */
 case class ParamDate(val dateValue: Date) extends Param {
+
+	/**
+	 * Implements operator > for ParamDate See [[Param.>]]
+	 */
 	override def >(x: Param) = x match {
 		case ParamDate(v) => dateValue.after(v)
 		case _ => throw new RuntimeException(s"Could not compare with ${x.getClass}")
 	}
+
+	/**
+	 * Implements operator < for ParamDate See [[Param.<]]
+	 */
 	override def <(x: Param) = x match {
 		case ParamDate(v) => dateValue.before(v)
 		case _ => throw new RuntimeException(s"Could not compare with ${x.getClass}")
@@ -118,42 +149,5 @@ object Param {
 			case LessEqual => !(left > right)
 			case _ => throw new RuntimeException(s"Unsupported compare type ${compareType}")
 		}
-	}
-}
-
-object Main4Parameter {
-	def main(args: Array[String]): Unit = {
-		println("ParamText:")
-		println(Param.compare(ParamText("t1"), CompareType.withName("="), ParamText("t1")))
-		println(Param.compare(ParamText("t1"), CompareType.withName("="), ParamText("t2")))
-		println(Param.compare(ParamText("t1"), CompareType.withName(">"), ParamText("t1")))
-		println(Param.compare(ParamText("t1"), CompareType.withName(">"), ParamText("t2")))
-
-		println("\nParamDouble:")
-		println(Param.compare(ParamDouble(123), CompareType.withName("="), ParamDouble(123)))
-		println(Param.compare(ParamDouble(123.01), CompareType.withName("="), ParamDouble(123.01)))
-		println(Param.compare(ParamDouble(123), CompareType.withName("="), ParamDouble(123.00)))
-		println(Param.compare(ParamDouble(123), CompareType.withName("="), ParamDouble(321)))
-		println(Param.compare(ParamDouble(123), CompareType.withName(">"), ParamDouble(123)))
-		println(Param.compare(ParamDouble(123.08), CompareType.withName(">"), ParamDouble(123.01)))
-		println(Param.compare(ParamDouble(543), CompareType.withName(">"), ParamDouble(123.00)))
-		println(Param.compare(ParamDouble(7), CompareType.withName(">"), ParamDouble(6)))
-
-		println("\nParamInt:")
-		println(Param.compare(ParamInt(123), CompareType.withName("="), ParamInt(123)))
-		println(Param.compare(ParamInt(1234), CompareType.withName(">"), ParamInt(123)))
-
-		println("\nParamDate:")
-		val dNow = Calendar.getInstance.getTime
-		val cBefore = Calendar.getInstance
-		cBefore.add(Calendar.DAY_OF_YEAR, -1)
-		val dBefore = cBefore.getTime
-		val cAfter = Calendar.getInstance
-		cAfter.add(Calendar.DAY_OF_YEAR, +1)
-		val dAfter = cAfter.getTime
-
-		println(Param.compare(ParamDate(dNow), CompareType.withName("="), ParamDate(dNow)))
-		println(Param.compare(ParamDate(dNow), CompareType.withName(">"), ParamDate(dBefore)))
-		println(Param.compare(ParamDate(dNow), CompareType.withName("<"), ParamDate(dAfter)))
 	}
 }
