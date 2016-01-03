@@ -17,7 +17,7 @@ import com.stulsoft.fsm.CompareType._
  * @author Yuriy Stul
  *
  */
-abstract class Param {
+trait Param {
 	/** Returns `true` if this value is greater than x, `false` otherwise. */
 	def >(x: Param): Boolean
 	/** Returns `true` if this value is less than x, `false` otherwise. */
