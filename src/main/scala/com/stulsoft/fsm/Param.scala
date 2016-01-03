@@ -10,7 +10,7 @@ import java.util.Calendar
 import com.stulsoft.fsm.CompareType._
 
 /**
- * Abstract parameter class.
+ * Trait parameter class.
  *
  * Declares compare types.
  *
