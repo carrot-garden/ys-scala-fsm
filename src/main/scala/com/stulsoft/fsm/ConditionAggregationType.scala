@@ -11,12 +11,12 @@ package com.stulsoft.fsm
  */
 object ConditionAggregationType extends Enumeration {
 	type ConditionAggregationType = Value
-	/** Transaction is available, if at least one condition is true */
+	/** Transition is available, if at least one condition is true */
 	val One = Value
-	/** Transaction is available, if all conditions is true */
+	/** Transition is available, if all conditions is true */
 	val All = Value
-	/** Transaction is available, if all conditions is false */
+	/** Transition is available, if all conditions is false */
 	val NotAll = Value
-	/** Transaction is available, if at least one condition is false */
+	/** Transition is available, if at least one condition is false */
 	val NotOne = Value
 }
