@@ -10,21 +10,6 @@ package com.stulsoft.fsm
   * @author Yuriy Stul
   * @param params specifies collection with values of the input parameters
   */
-class InputParams(val params: Map[String, Param]) {
+case class InputParams(params: Map[String, Param]) {
   require(params != null, "params could not be null")
-
-  override def equals(other: Any): Boolean = other match {
-    case that: InputParams => this.params == that.params
-    case _ => false
-  }
-
-  override def hashCode: Int = {
-    var h = 0
-    if (params != null) h += 13 + (13 * params.hashCode)
-    h
-  }
-
-  override def toString: String = {
-    s"InputParams: param=$params"
-  }
 }

@@ -18,31 +18,31 @@ import com.stulsoft.fsm.ParamDouble
  */
 class TransitionConditionTest extends FlatSpec with Matchers {
   "A TransitionCondition" should "support equals" in{
-  	val t1 = new TransitionCondition("t1", Equal, ParamDouble(123.05))
-		val t2 = new TransitionCondition("t1", Equal, ParamDouble(123.05))
+  	val t1 = TransitionCondition("t1", Equal, ParamDouble(123.05))
+		val t2 = TransitionCondition("t1", Equal, ParamDouble(123.05))
   	t1 shouldBe t2
   	
-  	val t3 = new TransitionCondition("t3", Equal, ParamDouble(123.05))
+  	val t3 = TransitionCondition("t3", Equal, ParamDouble(123.05))
   	t1 should not equal t3
   	
-  	val t4 = new TransitionCondition("t1", GreaterEqual, ParamDouble(123.05))
+  	val t4 = TransitionCondition("t1", GreaterEqual, ParamDouble(123.05))
   	t1 should not equal t4
   	
-  	val t5 = new TransitionCondition("t1", Equal, ParamDouble(123.77))
+  	val t5 = TransitionCondition("t1", Equal, ParamDouble(123.77))
   	t1 should not equal t5
   }
   it should "support hashCode" in {
-  	val t1 = new TransitionCondition("t1", Equal, ParamDouble(123.05))
-		val t2 = new TransitionCondition("t1", Equal, ParamDouble(123.05))
+  	val t1 = TransitionCondition("t1", Equal, ParamDouble(123.05))
+		val t2 = TransitionCondition("t1", Equal, ParamDouble(123.05))
   	t1.hashCode shouldBe t2.hashCode
   	
-  	val t3 = new TransitionCondition("t3", Equal, ParamDouble(123.05))
+  	val t3 = TransitionCondition("t3", Equal, ParamDouble(123.05))
   	t1.hashCode should not equal t3.hashCode
   	
-  	val t4 = new TransitionCondition("t1", GreaterEqual, ParamDouble(123.05))
+  	val t4 = TransitionCondition("t1", GreaterEqual, ParamDouble(123.05))
   	t1.hashCode should not equal t4.hashCode
   	
-  	val t5 = new TransitionCondition("t1", Equal, ParamDouble(123.77))
+  	val t5 = TransitionCondition("t1", Equal, ParamDouble(123.77))
   	t1.hashCode should not equal t5.hashCode
   }
 }
