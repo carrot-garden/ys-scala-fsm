@@ -17,23 +17,19 @@ object Automaton {
     * @param state       the current state
     * @param input       the input details
     * @param transitions collection of the possible transitions.
-    * @return next state, if it exists; otherwise - null.
+    * @return next state (optional)
     */
-  def nextState(state: State, input: Input, transitions: List[Transition]): State = {
+  def nextState(state: State, input: Input, transitions: List[Transition]): Option[State] = {
     require(state != null, "state could not be null.")
     require(input != null, "input could not be null.")
     require(transitions != null, "transitions could not be null.")
 
-    val optionalTransition = transitions
+    transitions
       .filter(transition => state.equals(transition.sourceState))
       .find(transition => {
         checkTransition(state, input, transition)
       })
-
-    if (optionalTransition.isDefined)
-      optionalTransition.get.destinationState
-    else
-      null
+      .map(transition => transition.destinationState)
   }
 
   /**
