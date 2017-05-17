@@ -9,7 +9,7 @@ import org.scalatest.FlatSpec
 import com.stulsoft.fsm._
 
 /**
- * Unit tests for Automation class.
+ * Unit tests for Automaton class.
  *
  * @author Yuriy Stul
  *

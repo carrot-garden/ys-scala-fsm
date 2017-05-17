@@ -37,7 +37,7 @@ class InputTest extends FlatSpec with Matchers {
   	val ip3 = new InputParams(p3)
   	val i3 = new Input(it3, ip3)
   	
-  	i1 should not equal(i3)
+  	i1 should not equal i3
   }
   it should "support hashCode" in {
   	val it1 = new InputType("t1")
@@ -57,6 +57,6 @@ class InputTest extends FlatSpec with Matchers {
   	val ip3 = new InputParams(p3)
   	val i3 = new Input(it3, ip3)
   	
-  	i1.hashCode should not equal(i3.hashCode)
+  	i1.hashCode should not equal i3.hashCode
   }
 }

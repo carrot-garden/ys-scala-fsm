@@ -21,7 +21,7 @@ class StateTest extends FlatSpec with Matchers {
   	s1 should equal(s2)
 
   	val s3 = new State("s3")
-  	s1 should not equal(s3)
+  	s1 should not equal s3
   }
   it should "support hashCode" in {
   	val s1 = new State("s1")
@@ -29,6 +29,6 @@ class StateTest extends FlatSpec with Matchers {
   	s1.hashCode should equal(s2.hashCode)
 
   	val s3 = new State("s3")
-  	s1.hashCode should not equal(s3.hashCode)
+  	s1.hashCode should not equal s3.hashCode
   }
 }

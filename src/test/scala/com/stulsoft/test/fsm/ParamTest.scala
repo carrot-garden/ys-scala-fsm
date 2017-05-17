@@ -23,14 +23,14 @@ import com.stulsoft.fsm.ParamDate
  */
 class ParamTest extends FlatSpec with Matchers {
   "A Param" should "support compare operations with text" in {
-  	Param.compare(ParamText("text"), Equal, ParamText("text")) shouldBe(true)
-  	Param.compare(ParamText("text"), NotEqual, ParamText("text22")) shouldBe(true)
-  	Param.compare(ParamText("text"), Less, ParamText("text22")) shouldBe(true)
-  	Param.compare(ParamText("text"), LessEqual, ParamText("text22")) shouldBe(true)
-  	Param.compare(ParamText("text"), LessEqual, ParamText("text")) shouldBe(true)
-  	Param.compare(ParamText("text123"), Greater, ParamText("text")) shouldBe(true)
-  	Param.compare(ParamText("text123"), GreaterEqual, ParamText("text")) shouldBe(true)
-  	Param.compare(ParamText("text"), GreaterEqual, ParamText("text")) shouldBe(true)
+  	Param.compare(ParamText("text"), Equal, ParamText("text")) shouldBe true
+  	Param.compare(ParamText("text"), NotEqual, ParamText("text22")) shouldBe true
+  	Param.compare(ParamText("text"), Less, ParamText("text22")) shouldBe true
+  	Param.compare(ParamText("text"), LessEqual, ParamText("text22")) shouldBe true
+  	Param.compare(ParamText("text"), LessEqual, ParamText("text")) shouldBe true
+  	Param.compare(ParamText("text123"), Greater, ParamText("text")) shouldBe true
+  	Param.compare(ParamText("text123"), GreaterEqual, ParamText("text")) shouldBe true
+  	Param.compare(ParamText("text"), GreaterEqual, ParamText("text")) shouldBe true
   }
   it should "support compare operations with double" in {
   	Param.compare(ParamDouble(123.09), CompareType.withName("="), ParamDouble(123.09))
@@ -58,8 +58,7 @@ class ParamTest extends FlatSpec with Matchers {
   	
   	val cBefore = Calendar.getInstance
   	cBefore.add(Calendar.DAY_OF_YEAR, -1)
-  	val before = cBefore.getTime
-  	
+
   	val cAfter = Calendar.getInstance
   	cAfter.add(Calendar.DAY_OF_YEAR, 1)
   	val after = cAfter.getTime 

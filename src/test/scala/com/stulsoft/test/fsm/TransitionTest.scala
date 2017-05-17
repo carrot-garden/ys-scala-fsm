@@ -49,7 +49,7 @@ class TransitionTest extends FlatSpec with Matchers {
 		val ds3 = new State("ds1")
 		val c3 = List(new TransitionCondition("t1", Equal, ParamDouble(123.05)), new TransitionCondition("t2", Less, ParamInt(17)))
 		val t3 = new Transition(i3, 1, ss3, ds3, c3, ConditionAggregationType.All)
-		t1 should not equal(t3)
+		t1 should not equal t3
 	}
 	it  should "support hashCode" in {
 		val it1 = new InputType("it1")
@@ -76,7 +76,7 @@ class TransitionTest extends FlatSpec with Matchers {
 		val ds3 = new State("ds1")
 		val c3 = List(new TransitionCondition("t1", Equal, ParamDouble(123.05)), new TransitionCondition("t2", Less, ParamInt(17)))
 		val t3 = new Transition(i3, 1, ss3, ds3, c3, ConditionAggregationType.All)
-		t1.hashCode should not equal(t3.hashCode)
+		t1.hashCode should not equal t3.hashCode
 	}
 
 }

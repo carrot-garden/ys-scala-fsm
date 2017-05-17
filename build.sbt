@@ -4,7 +4,7 @@ lazy val root = (project in file(".")).
   settings(
     name := "ys-scala-fsm",
     version := "0.1.0",
-    scalaVersion := "2.12.1",
+    scalaVersion := "2.12.2",
 	libraryDependencies ++= {
 		val scalacticVersion = "3.0.0"
 		val scalatestVersion = "3.0.0"

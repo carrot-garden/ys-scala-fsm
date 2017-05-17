@@ -27,7 +27,7 @@ class InputParamsTest extends FlatSpec with Matchers {
 
 		val ps3 = Map("p1" -> ParamInt(11), "p2" -> ParamDouble(21))
 		val ip3 = new InputParams(ps3)
-		ip1 should not equal(ip3)
+		ip1 should not equal ip3
 	}
 	it should "support hashCode" in {
 		val ps1 = Map("p1" -> ParamInt(1), "p2" -> ParamDouble(2))
@@ -38,6 +38,6 @@ class InputParamsTest extends FlatSpec with Matchers {
 
 		val ps3 = Map("p1" -> ParamInt(11), "p2" -> ParamDouble(21))
 		val ip3 = new InputParams(ps3)
-		ip1.hashCode should not equal(ip3.hashCode)
+		ip1.hashCode should not equal ip3.hashCode
 	}
 }
