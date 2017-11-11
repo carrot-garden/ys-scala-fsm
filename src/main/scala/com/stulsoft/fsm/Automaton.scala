@@ -41,7 +41,7 @@ object Automaton {
     * @return true, if transition is matched; otherwise - false.
     */
   private def checkTransition(state: State, input: Input, transition: Transition): Boolean = {
-    if (state.equals(transition.sourceState) && input.inputType.equals(transition.input.inputType)) {
+    if (state == transition.sourceState && input.inputType == transition.input.inputType) {
       transition.aggregationType match {
         case ConditionAggregationType.One =>
           transition.conditions.exists(transactionCondition =>
@@ -72,11 +72,11 @@ object Automaton {
     * @return true, if the condition is matched; otherwise - false.
     */
   private def checkCondition(state: State, input: Input, transactionCondition: TransitionCondition): Boolean = {
-    val inputParameterValue = input.inputParams.params.get(transactionCondition.paramName)
-
-    if (inputParameterValue.isDefined) {
-      val theValue = inputParameterValue.get
-      Param.compare(theValue, transactionCondition.compareType, transactionCondition.expectedValue)
-    } else false
+    input.inputParams.params.get(transactionCondition.paramName) match {
+      case Some(theValue) =>
+        Param.compare(theValue, transactionCondition.compareType, transactionCondition.expectedValue)
+      case None =>
+        false
+    }
   }
 }
