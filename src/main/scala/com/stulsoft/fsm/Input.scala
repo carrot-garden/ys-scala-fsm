@@ -12,7 +12,4 @@ package com.stulsoft.fsm
   * @param inputParams specifies an input parameters.
   *
   */
-case class Input(inputType: InputType, inputParams: InputParams) {
-  require(inputType != null, "inputType could not be null.")
-  require(inputParams != null, "inputParams could not be null.")
-}
+case class Input(inputType: InputType, inputParams: InputParams)

@@ -11,5 +11,4 @@ package com.stulsoft.fsm
   * @param name specifies the input type
   *
   */
-case class InputType(name: String) {
-}
+case class InputType(name: String)
