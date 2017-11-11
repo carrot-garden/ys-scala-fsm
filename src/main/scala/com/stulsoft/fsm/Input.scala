@@ -12,23 +12,4 @@ package com.stulsoft.fsm
   * @param inputParams specifies an input parameters.
   *
   */
-class Input(val inputType: InputType, val inputParams: InputParams) {
-  require(inputType != null, "inputType could not be null.")
-  require(inputParams != null, "inputParams could not be null.")
-
-  override def equals(other: Any): Boolean = other match {
-    case that: Input => this.inputType == that.inputType && this.inputParams == that.inputParams
-    case _ => false
-  }
-
-  override def hashCode: Int = {
-    var h: Int = 0
-    if (inputType != null) h += 13 + (13 * inputType.hashCode)
-    if (inputParams != null) h += 17 + (17 * inputParams.hashCode)
-    h
-  }
-
-  override def toString: String = {
-    s"Input: inputType=$inputType, inputParams=$inputParams"
-  }
-}
+case class Input(inputType: InputType, inputParams: InputParams)
