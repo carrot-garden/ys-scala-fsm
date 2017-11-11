@@ -1,6 +1,8 @@
 # ys-scala-fsm
 Scala Finite State Machine (FSM) 
 
+[![Build Status](https://travis-ci.org/ysden123/ys-scala-math.svg?branch=master)](https://travis-ci.org/ysden123/ys-scala-fsm)
+
 ## State Model
 Collection of _Transition_ defines state model.
 
