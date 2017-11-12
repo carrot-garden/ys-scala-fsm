@@ -1,5 +1,7 @@
 package com.stulsoft.fsm
 
+import com.stulsoft.fsm.CompareType._
+
 /**
   * @author Yuriy Stul.
   */
@@ -106,5 +108,19 @@ case class IntParameter(intValue: Int) extends Parameter[Int] {
     */
   override def <(x: Parameter[Int]): Boolean = x match {
     case IntParameter(v) => intValue < v
+  }
+}
+
+object Parameter {
+  def compare[T](left: Parameter[T], compareType: CompareType, right: Parameter[T]): Boolean = {
+    compareType match {
+      case Equal => left == right
+      case NotEqual => !(left == right)
+      case Greater => left > right
+      case GreaterEqual => !(left < right)
+      case Less => left < right
+      case LessEqual => !(left > right)
+      case _ => throw new RuntimeException(s"Unsupported compare type $compareType")
+    }
   }
 }
