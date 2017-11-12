@@ -1,15 +1,8 @@
-/**
-  * Copyright (c) 2015, Yuriy Stul. All rights reserved
-  */
-
 package com.stulsoft.fsm
 
 /**
-  * Holds an input data.
-  *
-  * @author Yuriy Stul
-  * @param inputType   specifies an input type
-  * @param inputParams specifies an input parameters.
-  *
+  * @author Yuriy Stul.
   */
-case class Input(inputType: InputType, inputParams: InputParams)
+trait Input[T] {
+  def value: T
+}
