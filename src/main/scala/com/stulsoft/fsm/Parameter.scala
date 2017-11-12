@@ -58,7 +58,7 @@ trait Parameter[T] {
   *
   * @param textValue the parameter value
   */
-case class ParameterText(textValue: String) extends Parameter[String] {
+case class TextParameter(textValue: String) extends Parameter[String] {
   /**
     * Returns `true` if this value is greater than x, `false` otherwise
     *
@@ -66,7 +66,7 @@ case class ParameterText(textValue: String) extends Parameter[String] {
     * @return `true` if this value is greater than x, `false` otherwise
     */
   override def >(x: Parameter[String]): Boolean = x match {
-    case ParameterText(v) => textValue > v
+    case TextParameter(v) => textValue > v
   }
 
 
@@ -77,6 +77,34 @@ case class ParameterText(textValue: String) extends Parameter[String] {
     * @return `true` if this value is less than x, `false` otherwise
     */
   override def <(x: Parameter[String]): Boolean = x match {
-    case ParameterText(v) => textValue < v
+    case TextParameter(v) => textValue < v
+  }
+}
+
+/**
+  * Parameter class implementation for text.
+  *
+  * @param intValue the parameter value
+  */
+case class IntParameter(intValue: Int) extends Parameter[Int] {
+  /**
+    * Returns `true` if this value is greater than x, `false` otherwise
+    *
+    * @param x parameter to compare with
+    * @return `true` if this value is greater than x, `false` otherwise
+    */
+  override def >(x: Parameter[Int]): Boolean = x match {
+    case IntParameter(v) => intValue > v
+  }
+
+
+  /**
+    * Returns `true` if this value is less than x, `false` otherwise
+    *
+    * @param x parameter to compare with
+    * @return `true` if this value is less than x, `false` otherwise
+    */
+  override def <(x: Parameter[Int]): Boolean = x match {
+    case IntParameter(v) => intValue < v
   }
 }
