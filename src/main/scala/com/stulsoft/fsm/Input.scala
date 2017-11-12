@@ -3,6 +3,4 @@ package com.stulsoft.fsm
 /**
   * @author Yuriy Stul.
   */
-trait Input[T] {
-  def value: T
-}
+case class Input[T:Parameter](name: String, parameters: Map[String, T])
