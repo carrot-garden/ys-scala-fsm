@@ -25,5 +25,11 @@ class InputTest extends FlatSpec with Matchers {
     i.parameters("p # 2") match {
       case IntParameter(x) => x shouldBe 2
     }
+
+    an[NoSuchElementException] should be thrownBy {
+      i.parameters("p # 5") match {
+        case IntParameter(x) => x shouldBe 2
+      }
+    }
   }
 }
