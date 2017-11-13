@@ -16,4 +16,14 @@ class InputTest extends FlatSpec with Matchers {
       case TextParameter(x) => x == "abc" shouldBe true
     }
   }
+  it should "work with params list" in {
+    val params = (for {
+      i <- 1 to 3
+    } yield (s"p # $i", IntParameter(i))).toMap
+    val inputName = "test input"
+    val i = Input(inputName, params)
+    i.parameters("p # 2") match {
+      case IntParameter(x) => x shouldBe 2
+    }
+  }
 }
