@@ -61,6 +61,7 @@ trait Parameter[T] {
   * @param textValue the parameter value
   */
 case class TextParameter(textValue: String) extends Parameter[String] {
+  require(textValue != null, "textValue could not be null.")
   /**
     * Returns ''true'' if this value is greater than x, ''false'' otherwise
     *
@@ -113,6 +114,9 @@ case class IntParameter(intValue: Int) extends Parameter[Int] {
 
 object Parameter {
   def compare[T](left: Parameter[T], compareType: CompareType, right: Parameter[T]): Boolean = {
+    require(!left.eq(null), "left could not be null")
+    require(compareType != null, "compareType could not be null")
+    require(!right.eq(null), "right could not be null")
     compareType match {
       case Equal => left == right
       case NotEqual => !(left == right)

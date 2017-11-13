@@ -7,4 +7,7 @@ package com.stulsoft.fsm
   * @tparam T parameter type
   * @author Yuriy Stul.
   */
-case class Input[T >: Parameter[Any]](name: String, parameters: Map[String, T])
+case class Input[T >: Parameter[Any]](name: String, parameters: Map[String, T]) {
+  require(name != null && name.nonEmpty, "name could not be null or empty.")
+  require(parameters != null, "parameters could not be null.")
+}
