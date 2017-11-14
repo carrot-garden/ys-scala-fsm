@@ -5,14 +5,14 @@ import com.stulsoft.fsm.CompareType._
 /**
   * @author Yuriy Stul.
   */
-trait Parameter[T] {
+trait Parameter {
   /**
     * Returns ''true'' if this value is greater than x, ''false'' otherwise
     *
     * @param x parameter to compare with
     * @return ''true'' if this value is greater than x, ''false'' otherwise
     */
-  def >(x: Parameter[T]): Boolean
+  def >(x: Parameter): Boolean
 
   /**
     * Returns ''true'' if this value is less than x, ''false'' otherwise
@@ -20,7 +20,7 @@ trait Parameter[T] {
     * @param x parameter to compare with
     * @return ''true'' if this value is less than x, ''false'' otherwise
     */
-  def <(x: Parameter[T]): Boolean
+  def <(x: Parameter): Boolean
 
   /**
     * Returns ''true'' if this value is not equal to x, ''false'' otherwise
@@ -28,15 +28,7 @@ trait Parameter[T] {
     * @param x parameter to compare with
     * @return ''true'' if this value is not equal to x, ''false'' otherwise
     */
-  def !=(x: Parameter[T]): Boolean = ! ==(x)
-
-  /**
-    * Returns ''true'' if this value is equal to x, ''false'' otherwise
-    *
-    * @param x parameter to compare with
-    * @return ''true'' if this value is equal to x, ''false'' otherwise
-    */
-  def ==(x: Parameter[T]): Boolean = ! <(x) && ! >(x)
+  def !=(x: Parameter): Boolean = ! ==(x)
 
   /**
     * Returns ''true'' if this value is greater or equal to x, ''false'' otherwise
@@ -44,7 +36,15 @@ trait Parameter[T] {
     * @param x parameter to compare with
     * @return ''true'' if this value is greater or equal to x, ''false'' otherwise
     */
-  def >=(x: Parameter[T]): Boolean = >(x) || ==(x)
+  def >=(x: Parameter): Boolean = >(x) || ==(x)
+
+  /**
+    * Returns ''true'' if this value is equal to x, ''false'' otherwise
+    *
+    * @param x parameter to compare with
+    * @return ''true'' if this value is equal to x, ''false'' otherwise
+    */
+  def ==(x: Parameter): Boolean = ! <(x) && ! >(x)
 
   /**
     * Returns ''true'' if this value is less or equal to x, ''false'' otherwise
@@ -52,7 +52,7 @@ trait Parameter[T] {
     * @param x parameter to compare with
     * @return ''true'' if this value is less or equal to x, ''false'' otherwise
     */
-  def <=(x: Parameter[T]): Boolean = <(x) || ==(x)
+  def <=(x: Parameter): Boolean = <(x) || ==(x)
 }
 
 /**
@@ -60,7 +60,7 @@ trait Parameter[T] {
   *
   * @param textValue the parameter value
   */
-case class TextParameter(textValue: String) extends Parameter[String] {
+case class TextParameter(textValue: String) extends Parameter {
   require(textValue != null, "textValue could not be null.")
 
   /**
@@ -69,7 +69,7 @@ case class TextParameter(textValue: String) extends Parameter[String] {
     * @param x parameter to compare with
     * @return ''true'' if this value is greater than x, ''false'' otherwise
     */
-  override def >(x: Parameter[String]): Boolean = x match {
+  override def >(x: Parameter): Boolean = x match {
     case TextParameter(v) => textValue > v
   }
 
@@ -80,7 +80,7 @@ case class TextParameter(textValue: String) extends Parameter[String] {
     * @param x parameter to compare with
     * @return ''true'' if this value is less than x, ''false'' otherwise
     */
-  override def <(x: Parameter[String]): Boolean = x match {
+  override def <(x: Parameter): Boolean = x match {
     case TextParameter(v) => textValue < v
   }
 }
@@ -90,14 +90,14 @@ case class TextParameter(textValue: String) extends Parameter[String] {
   *
   * @param intValue the parameter value
   */
-case class IntParameter(intValue: Int) extends Parameter[Int] {
+case class IntParameter(intValue: Int) extends Parameter {
   /**
     * Returns ''true'' if this value is greater than x, ''false'' otherwise
     *
     * @param x parameter to compare with
     * @return ''true'' if this value is greater than x, ''false'' otherwise
     */
-  override def >(x: Parameter[Int]): Boolean = x match {
+  override def >(x: Parameter): Boolean = x match {
     case IntParameter(v) => intValue > v
   }
 
@@ -108,13 +108,13 @@ case class IntParameter(intValue: Int) extends Parameter[Int] {
     * @param x parameter to compare with
     * @return ''true'' if this value is less than x, ''false'' otherwise
     */
-  override def <(x: Parameter[Int]): Boolean = x match {
+  override def <(x: Parameter): Boolean = x match {
     case IntParameter(v) => intValue < v
   }
 }
 
 object Parameter {
-  def compare[T](left: Parameter[T], compareType: CompareType, right: Parameter[T]): Boolean = {
+  def compare[T](left: Parameter, compareType: CompareType, right: Parameter): Boolean = {
     require(null != left, "left could not be null")
     require(compareType != null, "compareType could not be null")
     require(null != right, "right could not be null")

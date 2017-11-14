@@ -9,8 +9,7 @@ package com.stulsoft.fsm
   * @param conditions       specifies a conditions
   * @param aggregationType  specifies type of aggregation
   * @tparam P  parameter type
-  * @tparam TC transition condition type
   * @author Yuriy Stul
   */
-case class Transition[P >: Parameter[Any], TC](input: Input[P], priority: Int, sourceState: State, destinationState: State,
-                                               conditions: List[TransitionCondition[TC]], aggregationType: ConditionAggregationType.Value)
+case class Transition[P >: Parameter](input: Input[P], priority: Int, sourceState: State, destinationState: State,
+                                      conditions: List[TransitionCondition], aggregationType: ConditionAggregationType.Value)

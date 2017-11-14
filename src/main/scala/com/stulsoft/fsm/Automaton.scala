@@ -13,10 +13,9 @@ object Automaton {
     * @param input       the input details
     * @param transitions collection of the possible transitions.
     * @tparam P  parameter type
-    * @tparam TC transition condition type
     * @return next state (optional)
     */
-  def nextState[P >: Parameter[Any], TC](state: State, input: Input[P], transitions: Vector[Transition[P, TC]]): Option[State] = {
+  def nextState[P >: Parameter](state: State, input: Input[P], transitions: Vector[Transition[P]]): Option[State] = {
     require(state != null, "state could not be null.")
     require(input != null, "input could not be null.")
     require(transitions != null, "transitions could not be null.")
@@ -35,10 +34,9 @@ object Automaton {
     * @param input      the input details
     * @param transition the transition to check
     * @tparam P  parameter type
-    * @tparam TC transition condition type
     * @return true, if transition is matched; otherwise - false.
     */
-  private def checkTransition[P >: Parameter[Any], TC](state: State, input: Input[P], transition: Transition[P, TC]): Boolean = {
+  private def checkTransition[P >: Parameter](state: State, input: Input[P], transition: Transition[P]): Boolean = {
     if (state == transition.sourceState && input.name == transition.input.name) {
       transition.aggregationType match {
         case ConditionAggregationType.One =>
@@ -69,11 +67,11 @@ object Automaton {
     * @param transactionCondition the condition to check
     * @return true, if the condition is matched; otherwise - false.
     */
-  private def checkCondition[P >: Parameter[Any], TC](state: State, input: Input[P], transactionCondition: TransitionCondition[TC]): Boolean = {
+  private def checkCondition[P >: Parameter](state: State, input: Input[P], transactionCondition: TransitionCondition): Boolean = {
     input.parameters.get(transactionCondition.paramName) match {
-      case Some(theValue: Parameter[P]) =>
+      case Some(theValue: Parameter) =>
         Parameter.compare(theValue, transactionCondition.compareType, transactionCondition.expectedValue)
-      case None => false
+      case _ => false
     }
   }
 }
