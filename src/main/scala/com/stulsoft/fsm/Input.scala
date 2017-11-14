@@ -1,15 +1,13 @@
-/**
-  * Copyright (c) 2015, Yuriy Stul. All rights reserved
-  */
-
 package com.stulsoft.fsm
 
-/**
-  * Holds an input data.
+/** Input class
   *
-  * @author Yuriy Stul
-  * @param inputType   specifies an input type
-  * @param inputParams specifies an input parameters.
-  *
+  * @param name       input name
+  * @param parameters map with parameters (parameter name -> parameter value)
+  * @tparam T parameter type
+  * @author Yuriy Stul.
   */
-case class Input(inputType: InputType, inputParams: InputParams)
+case class Input[T >: Parameter](name: String, parameters: Map[String, T]) {
+  require(name != null && name.nonEmpty, "name could not be null or empty.")
+  require(parameters != null, "parameters could not be null.")
+}

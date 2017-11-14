@@ -1,7 +1,3 @@
-/**
-  * Copyright (c) 2015, Yuriy Stul. All rights reserved
-  */
-
 package com.stulsoft.fsm
 
 /**
@@ -11,15 +7,15 @@ package com.stulsoft.fsm
   *
   */
 object Automaton {
-  /**
-    * Calculates next state.
+  /** Calculates next state.
     *
     * @param state       the current state
     * @param input       the input details
     * @param transitions collection of the possible transitions.
+    * @tparam P  parameter type
     * @return next state (optional)
     */
-  def nextState(state: State, input: Input, transitions: List[Transition]): Option[State] = {
+  def nextState[P >: Parameter](state: State, input: Input[P], transitions: Vector[Transition[P]]): Option[State] = {
     require(state != null, "state could not be null.")
     require(input != null, "input could not be null.")
     require(transitions != null, "transitions could not be null.")
@@ -32,16 +28,16 @@ object Automaton {
       .map(transition => transition.destinationState)
   }
 
-  /**
-    * Checks the transition.
+  /** Checks the transition.
     *
     * @param state      current state
     * @param input      the input details
     * @param transition the transition to check
+    * @tparam P  parameter type
     * @return true, if transition is matched; otherwise - false.
     */
-  private def checkTransition(state: State, input: Input, transition: Transition): Boolean = {
-    if (state == transition.sourceState && input.inputType == transition.input.inputType) {
+  private def checkTransition[P >: Parameter](state: State, input: Input[P], transition: Transition[P]): Boolean = {
+    if (state == transition.sourceState && input.name == transition.input.name) {
       transition.aggregationType match {
         case ConditionAggregationType.One =>
           transition.conditions.exists(transactionCondition =>
@@ -71,12 +67,11 @@ object Automaton {
     * @param transactionCondition the condition to check
     * @return true, if the condition is matched; otherwise - false.
     */
-  private def checkCondition(state: State, input: Input, transactionCondition: TransitionCondition): Boolean = {
-    input.inputParams.params.get(transactionCondition.paramName) match {
-      case Some(theValue) =>
-        Param.compare(theValue, transactionCondition.compareType, transactionCondition.expectedValue)
-      case None =>
-        false
+  private def checkCondition[P >: Parameter](state: State, input: Input[P], transactionCondition: TransitionCondition): Boolean = {
+    input.parameters.get(transactionCondition.paramName) match {
+      case Some(theValue: Parameter) =>
+        Parameter.compare(theValue, transactionCondition.compareType, transactionCondition.expectedValue)
+      case _ => false
     }
   }
 }

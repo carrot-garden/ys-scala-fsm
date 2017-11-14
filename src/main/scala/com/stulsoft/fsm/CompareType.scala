@@ -1,14 +1,8 @@
-/**
-  * Copyright (c) 2016, Yuriy Stul. All rights reserved
-  */
-
 package com.stulsoft.fsm
 
-/**
-  * Specifies possible compare operations.
+/** Specifies possible compare operations.
   *
-  * @author Yuriy Stul
-  *
+  * @author Yuriy Stul.
   */
 object CompareType extends Enumeration {
   type CompareType = Value

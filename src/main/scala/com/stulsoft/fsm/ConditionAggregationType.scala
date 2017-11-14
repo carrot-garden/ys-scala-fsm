@@ -1,11 +1,6 @@
-/**
-  * Copyright (c) 2015, Yuriy Stul. All rights reserved
-  */
-
 package com.stulsoft.fsm
 
-/**
-  * Specifies a type of the transition conditions aggregation.
+/** Specifies a type of the transition conditions aggregation.
   *
   * @author Yuriy Stul
   */

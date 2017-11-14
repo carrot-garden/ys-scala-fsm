@@ -1,15 +1,14 @@
-/**
-  * Copyright (c) 2015, Yuriy Stul. All rights reserved
-  */
-
 package com.stulsoft.fsm
 
 /**
-  * The state.
+  * @author Yuriy Stul.
+  */
+
+/** The state
   *
-  * @author Yuriy Stul
-  * @param name the state name.
+  * @param name the state name
+  * @author Yuriy Stul.
   */
 case class State(name: String) {
-  require(name != null && !name.isEmpty, "name could not be null or empty.")
+  require(name != null && name.nonEmpty, "name could not be null or empty.")
 }
